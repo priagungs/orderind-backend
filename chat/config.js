@@ -1,4 +1,4 @@
 module.exports = {
-  ORDER_LISTING: 'list.order',
-  PRODUCT_LISTING: 'list.produk'
+  BEST_TOMAT: 'best.tomat',
+  BEST_PISANG: 'best.pisang',
 }
