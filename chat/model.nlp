@@ -1,0 +1,831 @@
+{
+  "settings": {
+    "languages": [
+      "id"
+    ]
+  },
+  "nluManager": {
+    "settings": {},
+    "languages": [
+      "id"
+    ],
+    "intentDomains": {},
+    "domainManagers": {
+      "id": {
+        "settings": {
+          "language": "id",
+          "useNoneFeature": true,
+          "config": {
+            "activation": "leaky-relu",
+            "hiddenLayers": [],
+            "iterations": 20000,
+            "learningRate": 0.7,
+            "errorThresh": 0.00005,
+            "momentum": 0.5,
+            "deltaErrorThresh": 0.000001,
+            "maxDecimals": 9,
+            "leakyReluAlpha": 0.08,
+            "timeout": 120000
+          }
+        },
+        "language": "id",
+        "nluClassName": "BrainNLU",
+        "useMasterDomain": true,
+        "trainByDomain": false,
+        "keepStopwords": true,
+        "stemDict": {
+          "?,ada,aja,apa,hari,ini,order,ya": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "dong,hari,ini,lihat,mau,order": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "ada,aja,apa,hari,ini,order,ya": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftarin,dong,masuk,order,yang": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftar,mau,order": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftar,masuk,order,tolong,yang": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "mau,order,proses": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftar,order": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "masuk,order,yang": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftar,order,sekarang": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "masuk,order,semua,yang": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftar,order,semua": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "hari,ini,jual": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "?,ada,aja,apa,hari,ini,jual": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftar,dong,lihat,masuk,mau,order,yang": {
+            "domain": "default",
+            "intent": "list.order"
+          },
+          "daftar,produk,semua": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "produk,punya,saya,yang": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "ada,aja,apa,produk,saya,ya": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "aja,apa,jual,saya,ya": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "?,ada,aja,apa,di,gudang,ya": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "ada,daftar,dong,mau,produk,semua,yang": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "di,etalase,produk,produk": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "?,ada,aja,apa,di,etalase,produk,ya": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "daftar,jual,produk,sedang,semua,yang": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "jual,produk,yang": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "ada,produk,produk,yang": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "barang,jual,yang": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "barang,saya,semua": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "aja,apa,barang,jual,saya": {
+            "domain": "default",
+            "intent": "list.produk"
+          },
+          "barang,daftar,jual,saya": {
+            "domain": "default",
+            "intent": "list.produk"
+          }
+        },
+        "intentDict": {
+          "list.order": "default",
+          "list.produk": "default"
+        },
+        "useStemDict": true,
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "language": "id",
+              "useNoneFeature": true,
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.7,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.08,
+                "timeout": 120000
+              }
+            },
+            "language": "id",
+            "keepStopwords": true,
+            "docs": [
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "ada",
+                  "order",
+                  "apa",
+                  "aja",
+                  "ya",
+                  "hari",
+                  "ini",
+                  "?"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "mau",
+                  "lihat",
+                  "order",
+                  "hari",
+                  "ini",
+                  "dong"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "hari",
+                  "ini",
+                  "ada",
+                  "order",
+                  "apa",
+                  "aja",
+                  "ya"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "daftarin",
+                  "order",
+                  "yang",
+                  "masuk",
+                  "dong"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "mau",
+                  "daftar",
+                  "order"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "tolong",
+                  "daftar",
+                  "order",
+                  "yang",
+                  "masuk"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "mau",
+                  "proses",
+                  "order"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "daftar",
+                  "order"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "order",
+                  "yang",
+                  "masuk"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "daftar",
+                  "order",
+                  "sekarang"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "semua",
+                  "order",
+                  "yang",
+                  "masuk"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "daftar",
+                  "semua",
+                  "order"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "jual",
+                  "hari",
+                  "ini"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "ada",
+                  "jual",
+                  "apa",
+                  "aja",
+                  "hari",
+                  "ini",
+                  "?"
+                ]
+              },
+              {
+                "intent": "list.order",
+                "tokens": [
+                  "mau",
+                  "lihat",
+                  "daftar",
+                  "order",
+                  "yang",
+                  "masuk",
+                  "dong"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "daftar",
+                  "semua",
+                  "produk"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "produk",
+                  "yang",
+                  "saya",
+                  "punya"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "saya",
+                  "ada",
+                  "produk",
+                  "apa",
+                  "aja",
+                  "ya"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "saya",
+                  "jual",
+                  "apa",
+                  "aja",
+                  "ya"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "di",
+                  "gudang",
+                  "ada",
+                  "apa",
+                  "aja",
+                  "ya",
+                  "?"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "mau",
+                  "dong",
+                  "daftar",
+                  "semua",
+                  "produk",
+                  "yang",
+                  "ada"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "produk",
+                  "produk",
+                  "di",
+                  "etalase"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "di",
+                  "etalase",
+                  "ada",
+                  "produk",
+                  "apa",
+                  "aja",
+                  "ya",
+                  "?"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "daftar",
+                  "semua",
+                  "produk",
+                  "yang",
+                  "sedang",
+                  "jual"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "produk",
+                  "yang",
+                  "jual"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "produk",
+                  "produk",
+                  "yang",
+                  "ada"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "barang",
+                  "yang",
+                  "jual"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "semua",
+                  "barang",
+                  "saya"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "saya",
+                  "jual",
+                  "barang",
+                  "apa",
+                  "aja"
+                ]
+              },
+              {
+                "intent": "list.produk",
+                "tokens": [
+                  "daftar",
+                  "barang",
+                  "jual",
+                  "saya"
+                ]
+              }
+            ],
+            "features": {
+              "ada": 8,
+              "order": 13,
+              "apa": 8,
+              "aja": 8,
+              "ya": 6,
+              "hari": 5,
+              "ini": 5,
+              "?": 4,
+              "mau": 5,
+              "lihat": 2,
+              "dong": 4,
+              "daftarin": 1,
+              "yang": 11,
+              "masuk": 5,
+              "daftar": 10,
+              "tolong": 1,
+              "proses": 1,
+              "sekarang": 1,
+              "semua": 6,
+              "jual": 8,
+              "produk": 11,
+              "saya": 6,
+              "punya": 1,
+              "di": 3,
+              "gudang": 1,
+              "etalase": 2,
+              "sedang": 1,
+              "barang": 4
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "id",
+                "useNoneFeature": true,
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.7,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.08,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "sizes": [
+                  29,
+                  3
+                ],
+                "layers": [
+                  {
+                    "ada": {},
+                    "order": {},
+                    "apa": {},
+                    "aja": {},
+                    "ya": {},
+                    "hari": {},
+                    "ini": {},
+                    "?": {},
+                    "mau": {},
+                    "lihat": {},
+                    "dong": {},
+                    "daftarin": {},
+                    "yang": {},
+                    "masuk": {},
+                    "daftar": {},
+                    "tolong": {},
+                    "proses": {},
+                    "sekarang": {},
+                    "semua": {},
+                    "jual": {},
+                    "produk": {},
+                    "saya": {},
+                    "punya": {},
+                    "di": {},
+                    "gudang": {},
+                    "etalase": {},
+                    "sedang": {},
+                    "barang": {},
+                    "nonefeature": {}
+                  },
+                  {
+                    "list.order": {
+                      "bias": 2.274263411,
+                      "weights": {
+                        "ada": -0.000164961,
+                        "order": 6.989722252,
+                        "apa": 0.021702662,
+                        "aja": 0.021702662,
+                        "ya": -3.319989681,
+                        "hari": 3.256570578,
+                        "ini": 3.256570578,
+                        "?": -0.016618047,
+                        "mau": 0.007516769,
+                        "lihat": -1.898002148,
+                        "dong": -1.371657729,
+                        "daftarin": 1.358463287,
+                        "yang": -1.430755734,
+                        "masuk": 4.680642605,
+                        "daftar": 3.240750074,
+                        "tolong": -3.250222445,
+                        "proses": 3.225641727,
+                        "sekarang": 0.000052147,
+                        "semua": -0.006098703,
+                        "jual": 3.693397284,
+                        "produk": -5.560099602,
+                        "saya": -4.286887646,
+                        "punya": -0.372242838,
+                        "di": -0.707460821,
+                        "gudang": -0.707460821,
+                        "sedang": -2.208969116,
+                        "barang": -4.919338226,
+                        "nonefeature": -2.298585415
+                      }
+                    },
+                    "list.produk": {
+                      "bias": 5.646830703,
+                      "weights": {
+                        "ada": 1.011167169,
+                        "order": -10.226988792,
+                        "apa": 0.637131155,
+                        "aja": 0.637131155,
+                        "ya": 1.176528215,
+                        "hari": -3.800198317,
+                        "ini": -3.800198317,
+                        "?": -3.370958328,
+                        "mau": -1.890586138,
+                        "lihat": -0.2108109,
+                        "dong": -2.215559959,
+                        "daftarin": -0.528731763,
+                        "yang": 3.427005529,
+                        "masuk": -2.564316511,
+                        "daftar": 1.354165196,
+                        "tolong": -0.482707828,
+                        "semua": 3.35001111,
+                        "jual": 1.976445317,
+                        "produk": 1.900511622,
+                        "saya": 2.017257929,
+                        "punya": -0.522917569,
+                        "di": 3.945479155,
+                        "gudang": 2.941972017,
+                        "etalase": 1.003518224,
+                        "sedang": -5.160811901,
+                        "barang": 1.522801042,
+                        "nonefeature": -5.596505642
+                      }
+                    },
+                    "None": {
+                      "bias": 2.627483866,
+                      "weights": {
+                        "ada": -0.539245069,
+                        "order": -1.608325243,
+                        "apa": -0.31691882,
+                        "aja": -0.31691882,
+                        "ya": -0.31691882,
+                        "hari": -0.821928501,
+                        "ini": -0.821928501,
+                        "?": -0.221785754,
+                        "mau": -0.597593367,
+                        "lihat": -0.060829353,
+                        "dong": -0.141677752,
+                        "daftarin": -0.080848418,
+                        "yang": -0.85464716,
+                        "masuk": -0.214372531,
+                        "daftar": -1.01915741,
+                        "tolong": -0.034612276,
+                        "proses": -0.424992293,
+                        "sekarang": -0.134434223,
+                        "semua": -0.859385133,
+                        "jual": -0.983626246,
+                        "produk": -1.233590961,
+                        "saya": -0.876372337,
+                        "punya": -0.109977521,
+                        "di": -0.76986295,
+                        "gudang": -0.145833611,
+                        "etalase": -0.624029338,
+                        "barang": -0.891725659,
+                        "nonefeature": 9.872512817
+                      }
+                    }
+                  }
+                ],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.7,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.08,
+                  "maxDecimals": 9,
+                  "log": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extraSentences": [
+      [
+        "id",
+        "ada order apa aja ya hari ini ?"
+      ],
+      [
+        "id",
+        "mau lihat order hari ini dong"
+      ],
+      [
+        "id",
+        "hari ini ada orderan apa aja ya"
+      ],
+      [
+        "id",
+        "daftarin order yang masuk dong"
+      ],
+      [
+        "id",
+        "mau daftar order"
+      ],
+      [
+        "id",
+        "tolong daftar order yang masuk"
+      ],
+      [
+        "id",
+        "mau proses order"
+      ],
+      [
+        "id",
+        "daftar order"
+      ],
+      [
+        "id",
+        "orderan yang masuk"
+      ],
+      [
+        "id",
+        "daftar order sekarang"
+      ],
+      [
+        "id",
+        "semua order yang masuk"
+      ],
+      [
+        "id",
+        "daftar semua order"
+      ],
+      [
+        "id",
+        "penjualan hari ini"
+      ],
+      [
+        "id",
+        "ada penjualan apa aja hari ini ?"
+      ],
+      [
+        "id",
+        "mau lihat daftar order yang masuk dong"
+      ],
+      [
+        "id",
+        "daftar semua produk"
+      ],
+      [
+        "id",
+        "produk yang saya punya"
+      ],
+      [
+        "id",
+        "saya ada produk apa aja ya"
+      ],
+      [
+        "id",
+        "saya jualan apa aja ya"
+      ],
+      [
+        "id",
+        "di gudang ada apa aja ya ?"
+      ],
+      [
+        "id",
+        "mau dong daftar semua produk yang ada"
+      ],
+      [
+        "id",
+        "produk produk di etalase"
+      ],
+      [
+        "id",
+        "di etalase ada produk apa aja ya ?"
+      ],
+      [
+        "id",
+        "daftarkan semua produk yang sedang dijual"
+      ],
+      [
+        "id",
+        "produk yang dijual"
+      ],
+      [
+        "id",
+        "produk produk yang ada"
+      ],
+      [
+        "id",
+        "barang yang dijual"
+      ],
+      [
+        "id",
+        "semua barang saya"
+      ],
+      [
+        "id",
+        "Saya jualan barang apa aja"
+      ],
+      [
+        "id",
+        "daftar barang jualan saya"
+      ]
+    ]
+  },
+  "nerManager": {
+    "settings": {},
+    "threshold": 0.8,
+    "builtins": [
+      "Number",
+      "Ordinal",
+      "Percentage",
+      "Age",
+      "Currency",
+      "Dimension",
+      "Temperature",
+      "DateTime",
+      "PhoneNumber",
+      "IpAddress",
+      "Boolean",
+      "Email",
+      "Hashtag",
+      "URL"
+    ],
+    "namedEntities": {}
+  },
+  "slotManager": {},
+  "responses": {},
+  "actions": {},
+  "utteranceDict": {
+    "?": "help"
+  }
+}
