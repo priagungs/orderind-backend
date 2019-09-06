@@ -5,6 +5,8 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const itemsRouter = require('./routes/items');
+
 const mongoose = require('mongoose');
 
 const dbUri = 'mongodb://localhost:27017/orderind'
@@ -18,7 +20,7 @@ const redis_sub = require('redis').createClient();
 
 redis_sub.subscribe('user_intent');
 redis_sub.on('message', async (channel, message) => {
-  redis_pub.publish(await messageServices.processMessage(message));
+  redis_pub.publish('core_response', await messageServices.processMessage(message));
 });
 
 app.use(logger('dev'));
@@ -29,5 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/items', itemsRouter);
+
+app.listen(3000, () => {
+  console.log('Running on port 3000');
+})
 
 module.exports = app;

@@ -14,9 +14,9 @@ io.on('connection', function(socket){
   console.log('a user connected');
 
   socket.on('chatbot_message', async function(msg){
-    const getIntent = await require('./model')();
+    const getIntent = require('./model')();
     console.log('message: ' + msg);
-    processIntent(await getIntent(msg));
+    processIntent(getIntent(msg));
   });
 
   redis_sub.on('message', (channel, message) => {

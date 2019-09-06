@@ -1,4 +1,3 @@
 module.exports = {
-  BEST_TOMAT: 'best.tomat',
-  BEST_PISANG: 'best.pisang',
+  BEST_PRICE: 'best_price',
 }
