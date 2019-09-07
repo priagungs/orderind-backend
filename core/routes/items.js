@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
     const limit = req.query.limit || 10;
     const items = await Item.find({
       "name": {'$regex': search, '$options': 'i'}
-    }).sort({ updatedAt: -1 }).limit(Number(limit)).skip(limit * Number(page));
+    }).sort({ updated_at: -1 }).limit(Number(limit)).skip(limit * Number(page));
     console.log(items);
     res.send({
       status: 200,

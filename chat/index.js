@@ -7,7 +7,7 @@ const redis_sub = require('redis').createClient();
 redis_sub.subscribe('core_response');
 
 const processIntent = (intent) => {
-  redis_pub.publish("user_intent", intent);
+  redis_pub.publish("user_intent", JSON.stringify(intent));
 }
 
 io.on('connection', function(socket){

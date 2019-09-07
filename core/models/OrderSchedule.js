@@ -7,7 +7,10 @@ const orderScheduleSchema = mongoose.Schema({
   isMonthly: Boolean,
   isWeekly: Boolean,
   isEachMinute: Boolean,
-  lastOrderCreated: Date,
+  lastOrderCreated: {
+    type: Date,
+    default: null,
+  },
 },
 { 
   timestamps: {

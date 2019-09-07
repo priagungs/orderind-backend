@@ -9,4 +9,9 @@ module.exports = {
     MERCHANT: 'MERCHANT',
     SUPPLIER: 'SUPPLIER',
   },
+  messageType: {
+    TEXT: 'TEXT',
+    CAROUSEL: 'CAROUSEL',
+    NOTIFICATION: 'NOTIFICATION',
+  }
 }

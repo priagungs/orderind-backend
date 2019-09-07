@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const messageSchema = mongoose.Schema({
   merchant: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  message: String,
-  additionalData: Object,
+  fromBot: Boolean,
+  message: Object,
 }, 
 { 
   timestamps: {

@@ -94,9 +94,33 @@ router.post('/', async (req, res) => {
 
 router.put('/:orderId', async (req, res) => {
   try {
-    const { orderStatus } = req.body;
+    const { status } = req.body;
     let order = await Order.findById(req.params.orderId);
-    order.status = orderStatus;
+    const dateNow = new Date();
+    switch (status) {
+      case orderStatus.CONFIRMED:
+        order.confirmed_at = dateNow;
+        let item = await Item.findById(order.item);
+        item.quantity = item.quantity - order.quantity;
+        await item.save();
+        break;
+      case orderStatus.ON_PROCESS:
+        order.confirmed_at = order.confirmed_at || dateNow;
+        order.processed_at = dateNow;
+        break;
+      case orderStatus.DELIVERED:
+        order.confirmed_at = order.confirmed_at || dateNow;
+        order.processed_at = order.processed_at || dateNow;
+        order.delivered_at = dateNow;
+        break;
+      default:
+        return res.status(400).send({
+          status: 400,
+          message: 'Wrong Order Status',
+          data: null
+        });
+    }
+    order.status = status;
     await order.save();
     res.send({
       status: 200,
