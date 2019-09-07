@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
-
+const { orderStatus } = require('../config');
 const orderSchema = mongoose.Schema({
   item: {type: mongoose.Schema.Types.ObjectId, ref: 'Item'},
   merchant: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   quantity: Number,
-  status: String,
+  status: {
+    type: String,
+    default: orderStatus.PENDING
+  },
   confirmed_at: {
     type: Date,
     default: null

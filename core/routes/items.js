@@ -53,14 +53,41 @@ router.get('/', async (req, res) => {
     const search = req.query.search || '';
     const page = req.query.page || 0;
     const limit = req.query.limit || 10;
-    const items = await Item.find({
-      "name": {'$regex': search, '$options': 'i'}
-    }).sort({ updated_at: -1 }).limit(Number(limit)).skip(limit * Number(page));
+    const supplierId = req.query.merchantId;
+    let items;
+    if (supplierId) {
+      items = await Item.find({
+        "name": {'$regex': search, '$options': 'i'},
+        supplier: supplierId
+      }).sort({ updated_at: -1 }).limit(Number(limit)).skip(limit * Number(page));
+    } else {
+      items = await Item.find({
+        "name": {'$regex': search, '$options': 'i'},
+      }).sort({ updated_at: -1 }).limit(Number(limit)).skip(limit * Number(page));
+    }
     console.log(items);
     res.send({
       status: 200,
       message: 'Ok',
       data: items
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: 500,
+      message: error.message,
+      data: null
+    });
+  }
+});
+
+router.get('/:itemId', async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.itemId).populate('supplier');
+    res.send({
+      status: 200,
+      message: 'Ok',
+      data: item
     });
   } catch (error) {
     console.log(error);

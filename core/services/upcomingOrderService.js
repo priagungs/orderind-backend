@@ -28,7 +28,6 @@ module.exports = () => {
           },
         ],
       });
-      console.log(orderSchedules);
       orderSchedules.forEach(async orderSchedule => {
         const momentLastSent = orderSchedules.lastOrderCreated 
           ? moment(orderSchedule.lastOrderCreated) 

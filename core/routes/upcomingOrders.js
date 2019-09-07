@@ -1,5 +1,6 @@
 const UpcomingOrder = require('../models/UpcomingOrder');
 const OrderSchedule = require('../models/OrderSchedule');
+const Order = require('../models/Order');
 const router = require('express').Router();
 
 router.get('/', async (req, res) => {
@@ -34,6 +35,35 @@ router.get('/', async (req, res) => {
     });
   }
 });
+
+router.put('/:upcomingOrderId', async (req, res) => {
+  try {
+    const { orderConfirm } = req.body;
+    let upcomingOrder = await UpcomingOrder.findById(req.params.upcomingOrderId)
+      .populate('orderSchedule');
+    upcomingOrder.isConfirmed = true;
+    await upcomingOrder.save();
+    if (orderConfirm) {
+      await Order.create({
+        item: upcomingOrder.orderSchedule.item,
+        merchant: upcomingOrder.orderSchedule.merchant,
+        quantity: upcomingOrder.orderSchedule.quantity,
+      });
+    }
+    res.send({
+      status: 200,
+      message: 'Ok',
+      data: null
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      status: 500,
+      message: error.message,
+      data: null
+    });
+  }
+})
 
 
 

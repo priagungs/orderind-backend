@@ -6,31 +6,40 @@ const intent_type = {
 const { messageType } = require('../config');
 module.exports = () => {
   const processIntent = async (type, value, merchantId) => {
+    console.log("MESSAGE SERVICE " + value);
     if (type === intent_type.BEST_PRICE) {
       return await Message.create({
         merchant: merchantId,
         fromBot: true,
         message: {
-          type: messageResponseType.CAROUSEL,
-          message: await Item.findOne({
+          type: messageType.CAROUSEL,
+          data: await Item.find({
             name: {
               "$regex": value, '$options': 'i'
             }
-          }).sort({ price: -1 })
+          }).sort({ price: -1 }).limit(5)
+        }
+      });
+    } else {
+      console.log(value);
+      return await Message.create({
+        merchant: merchantId,
+        fromBot: true,
+        message: {
+          type: messageType.TEXT,
+          data: value
         }
       });
     }
-    return null;
   }
 
   const processMessage = async (message, merchantId) => {
-    const messageObj = JSON.parse(message);
-    await Message.create({
+      await Message.create({
       merchant: merchantId,
       fromBot: false,
       message: {
         type: messageType.TEXT,
-        data: messageObj.message
+        data: message.message
       }
     });
     const splittedMessage = message.intent.split('.');
