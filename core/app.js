@@ -16,6 +16,7 @@ const dbUri = 'mongodb://localhost:27017/orderind'
 mongoose.connect(dbUri)
 
 const messageServices = require('./services/messageServices')();
+const upcomingOrderServices = require('./services/upcomingOrderService')().invoke();
 
 const app = express();
 const redis_pub = require('redis').createClient();
