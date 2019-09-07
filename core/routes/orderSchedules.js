@@ -4,6 +4,7 @@ const router = require('express').Router();
 router.post('/', async (req, res) => {
   try {
     const { merchantId, itemId, quantity, isMonthly, isWeekly, isEachMinute } = req.body;
+    console.log(req.body);
     const orderSchedule = await OrderSchedule.create({
       merchant: merchantId,
       item: itemId,

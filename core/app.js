@@ -17,8 +17,6 @@ const mongoose = require('mongoose');
 const dbUri = 'mongodb://localhost:27017/orderind'
 mongoose.connect(dbUri)
 
-const Message = require('./models/Message');
-
 const messageServices = require('./services/messageServices')();
 const upcomingOrderServices = require('./services/upcomingOrderService')().invoke();
 

@@ -5,7 +5,7 @@ router.post('/', async (req, res) => {
   try {
     const { supplierId, description, name, quantity, price, picture, recommendationPrice } = req.body;
     const item = await Item.create({
-      description, name, quantity, price, picture, recommendationPrice, supplier: supplierId
+      description, name, quantity, price, picture, recomendationPrice: recommendationPrice || price, supplier: supplierId
     });
     res.send({
       status: 200,
@@ -88,6 +88,24 @@ router.get('/:itemId', async (req, res) => {
       status: 200,
       message: 'Ok',
       data: item
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: 500,
+      message: error.message,
+      data: null
+    });
+  }
+});
+
+router.delete('/:itemId', async (req, res) => {
+  try {
+    await Item.findByIdAndDelete(req.params.itemId);
+    res.send({
+      status: 200,
+      message: 'Ok',
+      data: null,
     });
   } catch (error) {
     console.log(error);
