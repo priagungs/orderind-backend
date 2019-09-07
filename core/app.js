@@ -6,6 +6,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const itemsRouter = require('./routes/items');
+const ordersRouter = require('./routes/orders');
 
 const mongoose = require('mongoose');
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/items', itemsRouter);
+app.use('/orders', ordersRouter);
 
 app.listen(3000, () => {
   console.log('Running on port 3000');
