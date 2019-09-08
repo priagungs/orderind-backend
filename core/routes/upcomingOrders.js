@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         path: 'item',
         model: 'Item',
       },
-    }).sort({'updated_at': -1});
+    }).sort({'updated_at': -1}).limit(50);
     res.send({
       status: 200,
       message: 'Ok',

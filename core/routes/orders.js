@@ -44,6 +44,7 @@ router.get('/', async (req, res) => {
         .limit(Number(limit))
         .skip(Number(limit) * Number(page))
         .populate('item')
+        .populate('merchant')
         .sort({ updated_at: -1 });
     } else if (user.type === userType.SUPPLIER) {
       const items = await Item.find({
@@ -57,6 +58,7 @@ router.get('/', async (req, res) => {
       .sort({ updated_at: -1 })
       .limit(Number(limit))
       .skip(Number(limit) * Number(page))
+      .populate('merchant')
       .populate('item');
     }
     res.send({
@@ -64,6 +66,19 @@ router.get('/', async (req, res) => {
       message: 'Ok',
       data: orders,
     });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      status: 500,
+      message: error.message,
+      data: null
+    });
+  }
+});
+
+router.get('/_pending', async (req, res) => {
+  try {
+    
   } catch (error) {
     console.log(error);
     res.status(500).send({

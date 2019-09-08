@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const Item = require('../models/Item');
+const UpcomingOrder = require('../models/UpcomingOrder');
+const OrderSchedule = require('../models/OrderSchedule');
 
 router.post('/', async (req, res) => {
   try {
@@ -101,7 +103,18 @@ router.get('/:itemId', async (req, res) => {
 
 router.delete('/:itemId', async (req, res) => {
   try {
+    const orderSchedules = await OrderSchedule.find({
+      item: req.params.itemId
+    });
+    orderSchedules.forEach(async (orderSchedule) => {
+      const upcomingOrders = await UpcomingOrder.find({
+        orderSchedule: orderSchedules.id
+      });
+      upcomingOrders.forEach(upcomingOrder => UpcomingOrder.findOneAndDelete(upcomingOrder.id));
+      OrderSchedule.findByIdAndRemove(orderSchedule.id);
+    });
     await Item.findByIdAndDelete(req.params.itemId);
+
     res.send({
       status: 200,
       message: 'Ok',

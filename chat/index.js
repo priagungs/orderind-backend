@@ -1,6 +1,8 @@
 const app = require('express')();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+  transports: ['websocket']
+});
 const redis_pub = require('redis').createClient();
 const redis_sub = require('redis').createClient();
 
